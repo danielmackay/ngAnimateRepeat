@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular Animation</title>
+    <link href="css/animate.css" rel="stylesheet" />
+
+    <style>
+        .item {
+            -webkit-transition: .5s linear background;
+            transition: .5s linear background;
+        }
+
+         .item.ng-enter {
+             -webkit-animation: fadeInLeft .5s;
+             -moz-animation: fadeInLeft .5s;
+             -o-animation: fadeInLeft .5s;
+             animation: fadeInLeft .5s;
+         }
+
+        .item.ng-enter.ng-enter-active {
+            background: rgba(128, 128, 128, 0.30)
+        }
+
+        .item.ng-leave {
+            -webkit-animation: fadeOutLeft .5s;
+            -moz-animation: fadeOutLeft .5s;
+            -o-animation: fadeOutLeft .5s;
+            animation: fadeOutLeft .5s;
+        }
+    </style>
+</head>
+<body ng-app="app">
+
+    <div ng-controller="MainCtrl">
+        <ul>
+            <li ng-repeat="item in items" class="item">{{item}}</li>
+        </ul>
+        <button ng-click="addAnother()">Add another</button>
+        <button ng-click="remove()">Remove one</button>
+    </div>
+
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-animate.min.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
